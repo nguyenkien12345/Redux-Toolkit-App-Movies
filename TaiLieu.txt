@@ -1,0 +1,14 @@
+Đăng ký API miễn phí tại http://www.omdbapi.com/ (The OMDb API)
+
+const fetchMovies = async(movieText,type) => {
+    try{
+        const response = await axiosClient.get(`?apiKey=${APIKEY}&s=${movieText}&type=${type}`);
+        const data = response.data;
+        const action = addMovies(data);
+        dispatch(action);
+    }
+    catch(error){
+        console.log('Error: ', error);
+    }
+};
+fetchMovies(movieText,type);
